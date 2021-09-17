@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="select-buttons">
+      <div class="select-button" @click="changeSection(0)">プール</div>
+      <div class="select-button" @click="changeSection(1)">図書館</div>
+      <div class="select-button" @click="changeSection(2)">教室</div>
+      <div class="select-button" @click="changeSection(3)">体育館</div>
+      <div class="select-button" @click="changeSection(4)">理科室</div>
+    </div>
+    <div v-if="showNum == 0">
+      <div class="section-image">プール</div>
+      <p :class="collectClassName1">正解！！</p>
+      <p :class="wrongClassName1">不正解。。</p>
+      <input :disabled="isPush1" placeholder="プールのクイズ" class="quiz-input" type="text" v-model="quiz1">
+      <br><button @click="checkAnswer1()" class="answer-button">回答する</button>
+    </div>
+    <div v-if="showNum == 1">
+      <div class="section-image">図書館</div>
+    </div>
+    <div v-if="showNum == 2">
+      <div class="section-image">教室</div>
+      <p :class="collectClassName2">正解！！</p>
+      <p :class="wrongClassName2">不正解。。</p>
+      <input :disabled="isPush2" placeholder="教室のクイズ" class="quiz-input" type="text" v-model="quiz2">
+      <br><button @click="checkAnswer2()" class="answer-button">回答する</button>
+    </div>
+    <div v-if="showNum == 3">
+      <div class="section-image">体育館</div>
+    </div>
+    <div v-if="showNum == 4">
+      <div class="section-image">理科室</div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="main.js"></script>
+  </div>
+</body>
+
+</html>
